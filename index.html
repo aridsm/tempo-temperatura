@@ -18,19 +18,19 @@
         <form action="">
             <label for="search">Cidade</label>
             <input type="search" name="search" id="search" placeholder="Procure por uma cidade">
-            <input type="submit" value="Buscar">
+            <input type="submit" value="Buscar" id="submit">
         </form>
 
         <div class="change-city">
             <div class="infos-temperature">
-                <h2>Cidade</h2>
+                <h2 id="city">Cidade</h2>
                 <span class="date">Sábado, 5 de março de 2022</span>
                 <span class="hour">12:00</span>
                 
                 <div class="temperature">
-                        <span class="sunny-cloudy">Nublado <img src="img/01d.svg" alt=""></span>
+                        <span class="sunny-cloudy"><span>Nublado</span><img src="img/01d.svg" alt=""></span>
                         <span class="real-temp"><span class="temp">24</span>ºC</span>
-                        <div class="feel-like">Percebida - <span class="feel-like-temp">20ºC</span></div>
+                        <div class="feel-like">Percebida <span class="feel-like-temp">20ºC</span></div>
                         <div class="min-max">
                             <span class="min">Mínima <span class="min-temp">20ºC</span></span>
                             <span class="max">Máxima <span class="max-temp">20ºC</span></span>
@@ -58,5 +58,6 @@
         </div>
     </div> 
 </div>
+<script src="script.js"></script>
 </body>
 </html>
