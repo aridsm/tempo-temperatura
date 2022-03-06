@@ -56,6 +56,7 @@ input:focus{
 input[type="submit"] {
     background: #5A5E5D;
     border-radius: 0px 5px 5px 0px;
+    padding: 10px 30px;
     color: #E9ECEC;
     font-weight: 700;
     font-size: 16px;
@@ -82,7 +83,7 @@ h2 {
     font-size: 24px;
 }
 
-.date, .hour {
+.hour {
     font-weight: 400;
     font-size: 16px;
     display: block;
