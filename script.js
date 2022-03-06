@@ -1,14 +1,3 @@
-//Ao dar ENTER quando o input estiver focado, irá chamar uma função que irá realizar o fetch.
-//Nessa mesma função irá ser chamada uma outra função que irá pegar os valores da data de hoje.
-//Ao carregar a página, será chamada uma função que pegará a geolocalização do navegador
-//e enviará os valores de longitude e latitude para outra função que realizará o fetch,
-// porém a busca será feita por lon e lat.
-
-//ano bissexto se % do ano por 4 for 0.
-
-const last_day = [31, 28, 30, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
-
 const key = 'f666184363d7862c0c6e64eee175ff35'
 
 const searchInput = document.querySelector('#search')

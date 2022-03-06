@@ -188,3 +188,37 @@ h3 {
     display: block;
     position: absolute;
 }
+
+footer {
+    margin-top: 30px;
+}
+
+a {
+    color: #494D4D
+}
+
+@media all and (max-width: 480px) {
+    .change-city {
+        flex-direction: column;
+    }
+
+    .infos-temperature {
+        margin-right: 0;
+        margin-bottom: 60px
+    }
+
+    .infos-weather {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+        grid-gap: 20px
+    }
+    
+    .infos-weather::before {    
+        width:100%;
+        height: 1px;
+        left: 0;
+        top:-30px;
+    }
+    
+}
