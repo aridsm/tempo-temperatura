@@ -52,6 +52,8 @@ h1 {
   background: #22262f;
   max-height: 100vh;
   overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #13151a #313641;
 }
 
 form {
@@ -186,7 +188,8 @@ img {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
 
 .infos-weather span {
@@ -199,10 +202,10 @@ h3 {
 
 .infos-weather::before {
   content: "";
-  width: 1px;
-  height: 100%;
-  background: #949b9b;
-  left: -30px;
+  width: 100px;
+  height: 3px;
+  border-radius: 30px;
+  background: #9997f8;
   top: 0;
   display: block;
   position: absolute;
@@ -235,4 +238,16 @@ footer {
     left: 0;
     top: -30px;
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #313641;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #13151a;
 }
