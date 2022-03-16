@@ -7,13 +7,16 @@
     <title>Tempo agora</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="center-content">
-    <h1>Tempo agora</h1>
-
+    <div class="title-and-general">
+        <h1>Condições climáticas em tempo real</h1>
+        <p>By <a href="https://github.com/aridsm">Ariane Morelato</a></p>
+        <p>API: <a href="">OpenWeather</a></p>
+    </div>
+   
     <div class="weather-container">
         <form action="">
             <label for="search">Cidade</label>
@@ -23,41 +26,42 @@
 
         <div class="change-city">
             <div class="infos-temperature">
-                <h2 id="city">--</h2>
-                <span class="hour">--</span>
+                <div class="flex-header">
+                    <h2 id="city">-</h2>
+                    <span class="hour">-</span>
+                </div>
                 
                 <div class="temperature">
-                        <span class="sunny-cloudy"><span></span><img src="img/01d.svg" alt=""></span>
-                        <span class="real-temp"><span class="temp">--</span>°C</span>
-                        <div class="feel-like">Percebida <span class="feel-like-temp">--</span></div>
+                        <span class="sunny-cloudy"><img src="img/01d.svg" alt=""><span>-</span></span>
+                        <span class="real-temp"><span class="temp">-</span>°C</span>
+                        <div class="feel-like">Percebida <span class="feel-like-temp">-</span></div>
                         <div class="min-max">
-                            <span class="min">Mínima <span class="min-temp">--</span></span>
-                            <span class="max">Máxima <span class="max-temp">--</span></span>
+                            <span class="min">Mínima <span class="min-temp">-</span></span>
+                            <span class="max">Máxima <span class="max-temp">-</span></span>
                         </div>
                 </div>
             </div>
             <div class="infos-weather">
                 <span class="wind">
                     <h3>Vento</h3>
-                    <span class="wind-value">--</span>
+                    <span class="wind-value">-</span>
                 </span>
                 <span class="visibility">
                     <h3>Visibilidade</h3>
-                    <span class="visibility-value">--</span>
+                    <span class="visibility-value">-</span>
                 </span>
                 <span class="pressure">
                     <h3>Pressão atmosférica</h3>
-                    <span class="pressure-value">--</span>
+                    <span class="pressure-value">-</span>
                 </span>
                 <span class="humidity">
                     <h3>Umidade</h3>
-                    <span class="humidity-value">--</span>
+                    <span class="humidity-value">-</span>
                 </span>
             </div>
         </div>
     </div>
-    <footer>Design made by <a href="https://github.com/aridsm">Ariane Morelato</a></footer> 
-</div>
+
 <script src="script.js"></script>
 </body>
 </html>
