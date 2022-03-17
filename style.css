@@ -37,6 +37,17 @@ body > * {
 .title-and-general {
   order: 2;
   padding: 50px;
+  color: #9997f8;
+}
+
+.title-and-general a {
+  color: #9997f8;
+}
+
+.api {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
 }
 
 h1 {
