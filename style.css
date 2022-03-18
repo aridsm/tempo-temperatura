@@ -44,6 +44,10 @@ body > * {
   color: #9997f8;
 }
 
+.title-and-general {
+  text-align: right;
+}
+
 .api {
   position: absolute;
   right: 50px;
@@ -56,6 +60,7 @@ h1 {
   font-size: 64px;
   font-weight: 800;
   max-width: 500px;
+  margin-left: auto;
 }
 
 .weather-container {
@@ -248,28 +253,32 @@ h3 {
   position: absolute;
 }
 
-@media all and (max-width: 480px) {
-  .change-city {
+@media all and (max-width: 1020px) {
+  body {
     flex-direction: column;
+    background: #262a34;
   }
-
-  .infos-temperature {
-    margin-right: 0;
-    margin-bottom: 60px;
-  }
-
-  .infos-weather {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  .title-and-general {
+    order: 0;
     text-align: center;
-    grid-gap: 20px;
   }
-
-  .infos-weather::before {
-    width: 100%;
-    height: 1px;
-    left: 0;
-    top: -30px;
+  h1 {
+    font-size: 48px;
+    margin: 20px auto;
+  }
+  .title-and-general p + p {
+    margin-top: 30px;
+  }
+  .api {
+    position: relative;
+    margin: 0 auto;
+    right: initial;
+    bottom: initial;
+  }
+  .weather-container {
+    padding: 80px 30px;
+    max-height: 100%;
+    overflow-y: initial;
   }
 }
 
