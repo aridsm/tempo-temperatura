@@ -20,23 +20,37 @@ label {
 }
 
 body {
-  background: linear-gradient(180deg, #313641 0%, #262a34 100%);
   font-family: "Poppins", sans-serif;
   color: #c1c0d7;
   min-height: 100vh;
   height: 100%;
-  display: flex;
   font-size: 16px;
   letter-spacing: 1px;
+  background: #22262f;
+  display: grid;
+  place-items: center;
 }
 
 body > * {
   flex: 1;
 }
 
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 70px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-container {
+  flex: 1;
+  margin-left: 50px;
+  position: relative;
+}
+
 .title-and-general {
-  order: 2;
-  padding: 50px;
   color: #9997f8;
 }
 
@@ -44,14 +58,15 @@ body > * {
   color: #9997f8;
 }
 
-.title-and-general {
-  text-align: right;
-}
-
 .api {
   position: absolute;
-  right: 50px;
-  bottom: 50px;
+  top: -35px;
+  right: 0;
+  color: #9997f8;
+}
+
+.api a {
+  color: #9997f8;
 }
 
 h1 {
@@ -59,29 +74,20 @@ h1 {
   text-shadow: 0px 0px 20px rgba(153, 151, 248, 0.15);
   font-size: 64px;
   font-weight: 800;
-  max-width: 500px;
+  max-width: 400px;
   margin-left: auto;
-}
-
-.weather-container {
-  padding: 50px;
-  background: #22262f;
-  max-height: 100vh;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #13151a #313641;
 }
 
 form {
   width: 100%;
   display: flex;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 input[type="search"] {
   background: #313641;
-  border-radius: 5px 0 0 5px;
+  border-radius: 30px;
   width: 100%;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 input:focus {
@@ -100,13 +106,15 @@ input[type="submit"] {
   font-weight: 800;
   color: #313c41;
   cursor: pointer;
+  border-radius: 30px;
+  margin-left: 20px;
 }
 
 .change-city {
   display: flex;
   flex-direction: column;
   background: linear-gradient(180deg, #313641 0%, #262a34 100%);
-  border-radius: 5px;
+  border-radius: 30px;
   padding: 40px;
   margin-top: 30px;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.3);
@@ -259,7 +267,6 @@ h3 {
     background: #262a34;
   }
   .title-and-general {
-    order: 0;
     text-align: center;
   }
   h1 {
@@ -280,16 +287,4 @@ h3 {
     max-height: 100%;
     overflow-y: initial;
   }
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #313641;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #13151a;
 }
