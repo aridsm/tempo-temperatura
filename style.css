@@ -67,7 +67,7 @@ h1 {
   padding: 50px;
   background: #22262f;
   max-height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #13151a #313641;
 }
