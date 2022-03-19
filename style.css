@@ -261,13 +261,13 @@ h3 {
   position: absolute;
 }
 
-@media all and (max-width: 1020px) {
-  body {
+@media all and (max-width: 910px) {
+  .container {
     flex-direction: column;
-    background: #262a34;
   }
   .title-and-general {
     text-align: center;
+    margin: 0 auto;
   }
   h1 {
     font-size: 48px;
@@ -276,15 +276,37 @@ h3 {
   .title-and-general p + p {
     margin-top: 30px;
   }
-  .api {
-    position: relative;
-    margin: 0 auto;
-    right: initial;
-    bottom: initial;
-  }
   .weather-container {
-    padding: 80px 30px;
-    max-height: 100%;
-    overflow-y: initial;
+    margin: 100px auto 0 auto;
+    max-width: 500px;
+    width: 100%;
+  }
+  .infos-weather {
+    grid-template-columns: auto;
+  }
+}
+
+@media all and (max-width: 470px) {
+  form {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .api {
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  input[type="search"] {
+    padding: 15px 40px;
+  }
+
+  input[type="submit"] {
+    border-radius: 30px;
+    margin-left: 0;
+  }
+  .change-city {
+    padding: 40px 20px;
   }
 }
