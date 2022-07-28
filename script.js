@@ -14,24 +14,47 @@ const pressure = document.querySelector('.pressure-value')
 const humidity = document.querySelector('.humidity-value')
 const wind = document.querySelector('.wind-value')
 const time = document.querySelector('.hour')
-
+const loading = document.querySelector('.loading-container')
+const dataContainer = document.querySelector('.city-container')
+const fullDate = document.querySelector('.date')
+const noResults = document.querySelector('.sem-results')
 
 function searchForCity(city) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=pt_br&units=metric&appid=${key}`)
-    .then(response => {return response.json()})
-    .catch(error => console.log(error))
-    .then(weather => getWeatherData(weather))
+    const link = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=pt_br&units=metric&appid=${key}`
+    getCityData(link)
+
 }
 
-function fetchByCoords(lat,lon) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=pt_br&units=metric&appid=${key}`)
-    .then(response => {return response.json()})
-    .catch(error => console.log(error))
-    .then(weather => getWeatherData(weather))
+function initLoading() {
+    loading.style.display = 'block';
+    dataContainer.style.display = 'none';
+    noResults.style.display = 'none'
+}
+
+function getCityData(link) {
+    initLoading()
+    fetch(link)
+        .then(response => response.json())
+        .then(weather => {
+            getWeatherData(weather);
+            if (weather)
+                dataContainer.style.display = 'block';
+        })
+        .catch(error => {
+            noResults.style.display = 'block';
+            console.log(error);
+        })
+        .finally(() => {
+            loading.style.display = 'none';
+        })
+}
+
+function fetchByCoords(lat, lon) {
+    const link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=pt_br&units=metric&appid=${key}`
+    getCityData(link)
 }
 
 function getWeatherData(weather) {
-    console.log(weather)
     city.textContent = `${weather.name} - ${weather.sys.country}`;
     sunnyCloudy.textContent = weather.weather[0].description;
     icon.setAttribute('src', `img/${weather.weather[0].icon}.svg`)
@@ -44,10 +67,9 @@ function getWeatherData(weather) {
     visibility.textContent = `${weather.visibility / 1000}km`;
     pressure.textContent = `${weather.main.pressure}hPa`;
     humidity.textContent = `${weather.main.humidity}%`;
-    wind.textContent =`${weather.wind.speed}m/s - ${weather.wind.deg}° (${getDirection(weather.wind.deg)})`;
+    wind.textContent = `${weather.wind.speed}m/s - ${weather.wind.deg}° (${getDirection(weather.wind.deg)})`;
 
-    time.textContent = setLocalTime(weather.timezone)
-
+    getDate(weather.timezone)
 }
 
 function getDirection(deg) {
@@ -70,37 +92,86 @@ function getDirection(deg) {
     }
 }
 
+function getDate(timezone) {
 
-function setLocalTime(timezone) {
-    const localTime = timezone / 3600
+    const localTime = timezone / 3600;
     const d = new Date()
-    let UTC = d.getUTCHours()
-    let minutes = d.getMinutes()
+    const hours = d.getUTCHours();
+    const minutes = d.getMinutes();
+    const day = d.getUTCDate();
+    const month = d.getUTCMonth();
 
-    let hour = UTC + localTime
-    if (hour > 23) {
-       hour -= 24
-    } else if (hour < 0) {
-       hour += 24
-    }
-
-    return `${hour.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}`
+    const utcDate = new Date('2022', month, day, hours, minutes, 0);
+    const localDate = utcDate.setHours(utcDate.getHours() + localTime)
+    const newDate = new Date(localDate)
+    console.log(newDate)
+    const weekName = getWeekName(newDate.getDay());
+    const monthName = getMonthName(newDate.getMonth());
+    const localDay = newDate.getDate();
+    const localYear = newDate.getFullYear();
+    const localHour = newDate.getHours();
+    fullDate.innerText = `${weekName}, ${localDay} de ${monthName} de ${localYear}`;
+    time.innerText = `${localHour}h:${minutes}min`
 }
 
-
+function getWeekName(weekDay) {
+    switch (weekDay) {
+        case 0:
+            return 'Domingo';
+        case 1:
+            return 'Segunda-feira';
+        case 2:
+            return 'Terça-feira';
+        case 3:
+            return 'Quarta-feira';
+        case 4:
+            return 'Quinta-feira';
+        case 5:
+            return 'Sexta-feira';
+        case 6:
+            return 'Sabado';
+    }
+}
+function getMonthName(month) {
+    switch (month) {
+        case 0:
+            return 'Janeiro';
+        case 1:
+            return 'Fevereiro';
+        case 2:
+            return 'Março';
+        case 3:
+            return 'Abril';
+        case 4:
+            return 'Maio';
+        case 5:
+            return 'Junho';
+        case 6:
+            return 'Julho';
+        case 7:
+            return 'Agosto';
+        case 8:
+            return 'Setembro';
+        case 9:
+            return 'Outubro';
+        case 10:
+            return 'Novembro';
+        case 11:
+            return 'Dezembro';
+    }
+}
 submitInput.addEventListener('click', (e) => {
     e.preventDefault()
     searchForCity(searchInput.value)
 })
 window.addEventListener('keypress', (e) => {
-    if (e.key == "Enter") searchForCity(searchInput.value)
+    if (e.key == "Enter") { searchForCity(searchInput.value) }
 })
 
-window.addEventListener('load', (e) =>{
+window.addEventListener('load', (e) => {
     navigator.geolocation.getCurrentPosition(getCoords, showError)
 
     function getCoords(position) {
-        console.log(position)
         let lat = position.coords.latitude;
         let lon = position.coords.longitude
         fetchByCoords(lat, lon)

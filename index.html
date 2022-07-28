@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,62 +8,68 @@
     <title>Tempo agora</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
-    <div class="title-and-general">
         <h1>Condições climáticas em tempo real</h1>
-        <p>By <a href="https://github.com/aridsm">Ariane Morelato</a></p>
-    </div>
-   
-    <div class="weather-container">
-        <p class="api">API: <a href="https://openweathermap.org/api">OpenWeather</a></p>
         <form action="">
-            <label for="search">Cidade</label>
-            <input type="search" name="search" id="search" placeholder="Procure por uma cidade">
+            <label for="search">Procure por uma cidade</label>
+            <input type="search" name="search" id="search" placeholder="Ex: New York" autocomplete="off">
             <input type="submit" value="Buscar" id="submit">
         </form>
 
-        <div class="change-city">
-            <div class="infos-temperature">
-                <div class="flex-header">
-                    <h2 id="city">-</h2>
-                    <span class="hour">-</span>
-                </div>
-                
-                <div class="temperature">
-                        <span class="sunny-cloudy"><img src="img/01d.svg" alt=""><span>-</span></span>
-                        <span class="real-temp"><span class="temp">-</span>°C</span>
-                        <div class="feel-like">Percebida <span class="feel-like-temp">-</span></div>
-                        <div class="min-max">
-                            <span class="min">Mínima <span class="min-temp">-</span></span>
-                            <span class="max">Máxima <span class="max-temp">-</span></span>
-                        </div>
-                </div>
+        <p class="sem-results">Nenhum resultado</p>
+        <div class="loading-container">
+            <div class="loading"></div>
+        </div>
+        <div class="city-container">
+
+            <div class="flex-header">
+                <h2 id="city"></h2>
+                <span class="date"></span>
+                <span class="hour"></span>
             </div>
-            <div class="infos-weather">
-                <span class="wind">
-                    <h3>Vento</h3>
-                    <span class="wind-value">-</span>
-                </span>
-                <span class="visibility">
-                    <h3>Visibilidade</h3>
-                    <span class="visibility-value">-</span>
-                </span>
-                <span class="pressure">
-                    <h3>Pressão</h3>
-                    <span class="pressure-value">-</span>
-                </span>
-                <span class="humidity">
-                    <h3>Umidade</h3>
-                    <span class="humidity-value">-</span>
-                </span>
+            <div class="infos-temperature">
+                <div class="temperature">
+                    <span class="real-temp"><span class="temp"></span>°C</span>
+                    <span class="sunny-cloudy"><img src="img/01d.svg" alt=""><span></span></span>
+                </div>
+
+                <ul class="infos-weather">
+                    <li>
+                        <p>Temp. percebida</p> <span class="feel-like-temp"></span>
+                    </li>
+                    <li>
+                        <p>Temp. mínima</p> <span class="min-temp"></span>
+                    </li>
+                    <li>
+                        <p>Temp. máxima</p> <span class="max-temp"></span>
+                    </li>
+                    <li>
+                        <p>Vento</p><span class="wind-value"></span>
+                    </li>
+                    <li>
+                        <p>Visibilidade</p><span class="visibility-value"></span>
+                    </li>
+                    <li>
+                        <p>Pressão</p><span class="pressure-value"></span>
+                    </li>
+                    <li>
+                        <p>Umidade</p><span class="humidity-value"></span>
+                    </li>
+                </ul>
             </div>
         </div>
+        <footer>
+            <p>By <a href="https://github.com/aridsm">Ariane Morelato</a></p>
+            <p class="api">API: <a href="https://openweathermap.org/api">OpenWeather</a></p>
+        </footer>
     </div>
-</div>
-<script src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
