@@ -50,7 +50,7 @@ form {
   grid-template-columns: 1fr auto;
   grid-gap: .5rem;
   width: 100%;
-  max-width: 45rem;
+  max-width: 40rem;
 }
 
 form label {
@@ -80,7 +80,7 @@ input[type="submit"] {
   cursor: pointer;
   border-radius: .2rem;
   border: 1px solid var(--cor-1);
-  padding: .7rem 2rem
+  padding: .7rem 1.4rem
 }
 
 .city-container,
@@ -89,6 +89,7 @@ input[type="submit"] {
   padding-top: 2rem;
   border-top: 1px solid var(--cor-4);
   margin-top: 2rem;
+  display: none;
 }
 
 .date {
@@ -116,7 +117,7 @@ h2 {
   color: var(--cor-1);
 }
 
-.infos-temperature {
+.infos-data {
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
@@ -185,7 +186,8 @@ img {
 footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
+  margin-top: 4rem;
+  padding-bottom: 2rem;
 }
 
 footer a {
@@ -209,5 +211,29 @@ footer a {
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 650px) {
+  .infos-data {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .infos-weather {
+    width: 100%;
+    margin-top: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    grid-gap: .5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .flex-header {
+    flex-direction: column;
+  }
+
+  .date {
+    margin: .5rem 0;
   }
 }
