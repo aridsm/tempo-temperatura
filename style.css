@@ -92,6 +92,12 @@ input[type="submit"] {
   display: none;
 }
 
+.loading-container {
+  min-height: 15rem;
+  display: grid;
+  place-items: center;
+}
+
 .date {
   margin-left: 1rem;
   margin-right: auto;

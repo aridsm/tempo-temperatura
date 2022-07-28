@@ -26,7 +26,7 @@ function searchForCity(city) {
 }
 
 function initLoading() {
-    loading.style.display = 'block';
+    loading.style.display = 'grid';
     dataContainer.style.display = 'none';
     noResults.style.display = 'none'
 }
