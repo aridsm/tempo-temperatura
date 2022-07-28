@@ -10,4 +10,4 @@ Consumindo API de tempo do [OpenWeather](https://openweathermap.org/api).
  
  Link do projeto: https://aridsm.github.io/tempo-temperatura/
  
- ![Página do website](https://github.com/aridsm/tempo-temperatura/blob/main/page.png)
+ ![Página do website](https://github.com/aridsm/tempo-temperatura/blob/main/page.gif)
