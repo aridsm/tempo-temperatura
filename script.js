@@ -160,10 +160,12 @@ function getMonthName(month) {
             return 'Dezembro';
     }
 }
+
 submitInput.addEventListener('click', (e) => {
     e.preventDefault()
     searchForCity(searchInput.value)
 })
+
 window.addEventListener('keypress', (e) => {
     if (e.key == "Enter") { searchForCity(searchInput.value) }
 })
