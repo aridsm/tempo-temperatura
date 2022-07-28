@@ -92,7 +92,8 @@ input[type="submit"] {
   display: none;
 }
 
-.loading-container {
+.loading-container,
+.sem-results {
   min-height: 15rem;
   display: grid;
   place-items: center;
